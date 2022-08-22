@@ -5,3 +5,6 @@ Titus Winters, Software Engineering at Google
 
 Comentário:
 A engenharia de software não se remuse apenas em linhas de códigos, mas sim em uma filosofia de pensamento de como um software é desenvolvido, implementado e atualizado.
+
+# Sistema de controle de Mercado
+## Requisitos Funcionais
