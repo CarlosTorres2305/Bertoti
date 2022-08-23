@@ -6,5 +6,11 @@ Titus Winters, Software Engineering at Google
 Comentário:
 A engenharia de software não se remuse apenas em linhas de códigos, mas sim em uma filosofia de pensamento de como um software é desenvolvido, implementado e atualizado.
 
-# Sistema de controle de Mercado
+# Sistema de caixa eletrônico
 ## Requisitos Funcionais
+1- Efetuar depósitos
+2- Efetuar saques
+3- Efetuar transferências
+4- Verificar saldo
+5- Abastecimento do caixa
+
