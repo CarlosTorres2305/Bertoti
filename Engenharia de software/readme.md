@@ -9,7 +9,7 @@ A engenharia de software não se remuse apenas em linhas de códigos, mas sim em
 # Sistema de caixa eletrônico
 ## Requisitos Funcionais<br>
 1- Efetuar depósitos<br>
-2- Efetuar Pagamentos<br>
+2- Efetuar saques<br>
 3- Efetuar transferências<br>
 4- Verificar saldo<br>
 5- Abastecer o caixa
