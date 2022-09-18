@@ -59,6 +59,8 @@ public class CaixaEletronico {
 		System.out.println("Novo valor no caixa: R$" + this.getDinheiro());
 	}
 	//Métodos especiais
+	public CaixaEletronico(){
+		this.setDinheiro(2000);
 	public Conta getConta() {
 		return conta;
 	}
