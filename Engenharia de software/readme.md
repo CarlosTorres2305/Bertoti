@@ -15,5 +15,9 @@ A engenharia de software não se remuse apenas em linhas de códigos, mas sim em
 5- Abastecer o caixa
 
 ## Diagrama de casos de uso<br>
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ![alt text](https://github.com/CarlosTorres2305/Bertoti/blob/main/Engenharia%20de%20software/umlContaBanc%C3%A1ria3.jpg)
+
+## Diagrama de classes UML<br>
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+![alt text](https://github.com/CarlosTorres2305/Bertoti/blob/main/Engenharia%20de%20software/classes2.1.jpg)
