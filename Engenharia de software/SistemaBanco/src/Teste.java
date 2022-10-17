@@ -1,8 +1,11 @@
+import static org.junit.jupiter.api.Assertions.*;
 
-//Area de testes
-public class AcessoConta {
+import org.junit.jupiter.api.Test;
 
-	public static void main(String[] args) {
+class Teste {
+
+	@Test
+	void test() {
 		Conta c1 = new Conta("Carlos",2323,"1234");
 		Conta c2 = new Conta("Maria",2304,"5678");
 		
@@ -13,13 +16,9 @@ public class AcessoConta {
 		cx1.consultarSaldo(c1);
 		cx1.efetuarTransferencia(300, c1, c2);
 		
-		cx1.acessarConta("5678", c2);
+		//cx1.acessarConta("5678", c2);
 		cx1.efetuarSaque(100, c2);
 		cx1.getConta().fecharConta();
-		
-		
-		
-
 	}
 
 }

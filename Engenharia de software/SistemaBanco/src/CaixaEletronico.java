@@ -47,7 +47,7 @@ public class CaixaEletronico {
 			if (this.getConta().getSaldo() > valor) {
 				para.setSaldo(para.getSaldo() + valor);
 				this.getConta().setSaldo(this.getConta().getSaldo() - valor);
-				System.out.println("Transferência de R$" + valor + " realizada com sucesso!"); 
+				System.out.println("Transferência de R$" + valor +  " para: " + para.getCliente() + " realizada com sucesso!"); 
 				System.out.println("Novo saldo de: " + this.getConta().getCliente() + " R$"+ this.getConta().getSaldo());
 			}
 		} else {
