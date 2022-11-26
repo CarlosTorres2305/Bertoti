@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class CaixaEletronico {
 	private List<Conta> contas = new LinkedList<Conta>();
-	private List<Cedula> cedulas = new LinkedList<Cedula>();
-	boolean leitorCartao;
+	private float dinheiro;
+	boolean leitorCartao = false;
 	
 	Scanner teclado = new Scanner(System.in);
 	
@@ -19,6 +19,14 @@ public class CaixaEletronico {
 	}
 	
 	
+	public float getDinheiro() {
+		return dinheiro;
+	}
+
+	public void setDinheiro(float dinheiro) {
+		this.dinheiro = dinheiro;
+	}
+
 	public void cadastrarConta(Conta conta) {
 		contas.add(conta);
 	}
@@ -27,12 +35,18 @@ public class CaixaEletronico {
 		if (this.getLeitorCartao()){
 			for (Conta conta:contas) {
 				if (conta.getAcesso()) {
-					if (conta.getSaldo() >= valor){
-						conta.setSaldo(conta.getSaldo() - valor);
+					if(valor <= this.getDinheiro()) {
+						if (conta.getSaldo() >= valor){
+							conta.setSaldo(conta.getSaldo() - valor);
+							this.setDinheiro(this.getDinheiro() - valor);
+							break;
+						}else {
+							System.out.println("Saldo insuficiente!");
+						}
 					}else {
-						System.out.println("Saldo insuficiente!");
+						System.out.println("Falta dinheiro no caixa!");
 					}
-				}else {
+				} else {
 					System.out.println("Acesso negado!");
 				}
 			}
@@ -46,6 +60,7 @@ public class CaixaEletronico {
 			for (Conta conta:contas) {
 				if (conta.getAcesso()) {
 					conta.setSaldo(conta.getSaldo() + valor);
+					break;
 				}else {
 					System.out.println("Acesso negado!");
 				}
@@ -63,49 +78,64 @@ public class CaixaEletronico {
 						//verificar saldo
 						if (conta.getSaldo() >= valor){
 							destino.setSaldo(destino.getSaldo() + valor);
+							conta.setSaldo(conta.getSaldo() - valor);
+							break;
 						} else {
 							System.out.println("Saldo insuficiente!");
 						}
-					} else {
-						System.out.println("Conta não existe!");
 					}
 				}
-			} else {
-				System.out.println("Acesso Negado!");
-			}
+			} 
 		}
 	}
 	
-	public void acessarConta(Cartao cartao) {
+	
+
+	
+	public void abastecerCaixa(float valor) {
+		this.setDinheiro(this.getDinheiro() + valor);
+	}
+	
+	public void inserirCartao(int numContaCartao) {
+		leitorCartao = true;
+	}
+	public void acessarConta(int cartao) {
 		for (Conta conta:contas) {
-			if (conta.getNumConta() == cartao.getNumContaCartao()){
+			if (conta.getNumConta() == cartao){
 				System.out.println("Digite sua Senha:");
 				int senha = teclado.nextInt();
 					if (senha == conta.getSenha()) {
 						conta.acesso = true;
+						System.out.println("Acesso Liberado");
+						break;
 					} else {
 						System.out.println("Senha incorreta!");
+						break;
 					}
-			}else {
-				System.out.println("Conta não existe!");
 			}
 		}
 	}
-
 	
-	public void carregarCedulas() {
-		
+	public void mostrarSaldo() {
+		for (Conta conta:contas) {
+			if(conta.getAcesso()) {
+				System.out.println("Conta: " + conta.getCliente().getNome() +
+						" Saldo: " + "R$" + conta.getSaldo());
+				break;
+			}
+		}
 	}
 	
-	public void inserirCartao() {
-		leitorCartao = true;
-		acessarConta(null);
+	public void encerrar(int numConta) {
+		for(Conta conta:contas) {
+			conta.setAcesso(false);
+			leitorCartao = false;
+		}
 	}
-
 	// Execução
 	
-	public static void main(String[] args) {
-		
+	public List<Conta> getContas() {
+		return this.contas;
 	}
 	
 }
