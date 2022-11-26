@@ -6,7 +6,18 @@ public class Conta {
 	int senha;
 	float saldo;
 	boolean acesso;
-	boolean status;
+	boolean bloqueio;
+	Cartao numContaCartao;
+	
+	public Conta(Cliente cliente, int ag, int numConta, int senha, Cartao numContaCartao) {
+		this.cliente = cliente;
+		this.ag = ag;
+		this.numConta = numConta;
+		this.senha = senha;
+		this.numContaCartao = numContaCartao;
+		this.setSaldo(0);
+		this.acesso = false;
+	}
 	
 	public Cliente getCliente() {
 		return cliente;
@@ -44,18 +55,20 @@ public class Conta {
 	public void setAcesso(boolean acesso) {
 		this.acesso = acesso;
 	}
-	public boolean getStatus() {
-		return status;
+	public boolean getBloqueio() {
+		return bloqueio;
 	}
-	public Conta(Cliente cliente, int ag, int numConta, int senha) {
-		this.cliente = cliente;
-		this.ag = ag;
-		this.numConta = numConta;
-		this.senha = senha;
-		this.setSaldo(0);
+	
+	public void setBloqueio(boolean bloqueio) {
+		this.bloqueio = bloqueio;
 	}
-	public void setStatus(boolean status) {
-		this.status = status;
+
+	public Cartao getNumContaCartao() {
+		return numContaCartao;
+	}
+
+	public void setNumContaCartao(Cartao numContaCartao) {
+		this.numContaCartao = numContaCartao;
 	}
 	
 	
