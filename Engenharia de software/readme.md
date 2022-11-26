@@ -6,7 +6,7 @@ Titus Winters, Software Engineering at Google
 Comentário:
 A engenharia de software não se remuse apenas em linhas de códigos, mas sim em uma filosofia de pensamento de como um software é desenvolvido, implementado e atualizado.
 
-# Sistema de caixa eletrônico
+# Sistema Bancário
 ## Requisitos Funcionais<br>
 1- Efetuar depósitos<br>
 2- Efetuar saques<br>
