@@ -6,7 +6,6 @@ public class Conta {
 	int senha;
 	float saldo;
 	boolean acesso;
-	boolean bloqueio;
 	Cartao numContaCartao;
 	
 	public Conta(Cliente cliente, int ag, int numConta, int senha, Cartao numContaCartao) {
@@ -55,13 +54,7 @@ public class Conta {
 	public void setAcesso(boolean acesso) {
 		this.acesso = acesso;
 	}
-	public boolean getBloqueio() {
-		return bloqueio;
-	}
 	
-	public void setBloqueio(boolean bloqueio) {
-		this.bloqueio = bloqueio;
-	}
 
 	public Cartao getNumContaCartao() {
 		return numContaCartao;

@@ -32,6 +32,9 @@ class CaixaEletronicoTest {
 		caixa.inserirCartao(2405);
 		caixa.acessarConta(2405);
 		caixa.mostrarSaldo();
+		caixa.saque(1000);
+		caixa.mostrarSaldo();
+		assertEquals(caixa.getDinheiro(), 4000);
 		
 		
 		

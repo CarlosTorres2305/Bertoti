@@ -31,7 +31,7 @@ public class CaixaEletronico {
 		contas.add(conta);
 	}
 	
-	public void saque(int valor) {
+	public void saque(float valor) {
 		if (this.getLeitorCartao()){
 			for (Conta conta:contas) {
 				if (conta.getAcesso()) {
@@ -46,9 +46,7 @@ public class CaixaEletronico {
 					}else {
 						System.out.println("Falta dinheiro no caixa!");
 					}
-				} else {
-					System.out.println("Acesso negado!");
-				}
+				} 
 			}
 		} else {
 			System.out.println("Insira o cartão primeiro!");
@@ -132,7 +130,7 @@ public class CaixaEletronico {
 			leitorCartao = false;
 		}
 	}
-	// Execução
+	// p/ testes
 	
 	public List<Conta> getContas() {
 		return this.contas;
