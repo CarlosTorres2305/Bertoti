@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Estabelecimento</title>
+	
+    
+	<script src="js/jquery.js"></script>
+	
+
+	<link href="css/bootstrap.min.css" rel=stylesheet>
+	
+	
+	<script>
+		$(document).ready(function(){
+			
+
+			$("#busca").click(function() {
+
+				var modelo = $( "#modelo option:selected" ).text();
+				var marca = $( "#marca option:selected" ).text();
+				
+					
+				$("#dadosCarro").empty();
+					
+				var url = "/produto/"+marca+"/"+fornecedor+"";
+					
+
+				$.getJSON(url, function(data) {
+						
+						var itens = [];
+						
+						$.each(data, function(i){
+						
+							itens.push("<tr> <td>"+ this.descricao +"</td><td>"+ this.info.marca + "</td><td>"+ this.info.fornecedor + "</td><td>"+ this.quantidade + "</td></tr>");
+							
+						});
+									
+						$("#dadosCarro").append(itens);
+						
+				});
+
+			});
+
+		});
+
+	</script>
+
+   
+  </head>
+
+
+  <body>
+		
+
+  		<div id="painelBusca">
+            
+		
+		
+            <div class="form-group col-md-4">
+                <label>Marca</label>
+                <select id="modelo" class="input-large form-control">
+                    <option value="" selected="selected">Escolha o ano</option>
+                    <option value="FLC">FLC</option>
+                    <option value="Galeria ltda">Galeria ltda</option>
+                    <option value="fusca">fusca</option>
+                    
+                </select>
+            </div>
+		
+		
+		
+            <div class="form-group col-md-4">
+                <label>Fornecedor</label>
+                <select id="marca" class="input-large form-control">
+                    <option value="" selected="selected">Escolha o ano</option>
+                    <option value="Galeria ltda">Galeria ltda</option>
+                    <option value="FLC">FLC</option>
+                    <option value="ferrari">ferrari</option>
+                    
+                </select>
+            </div>
+		
+		
+		
+            <div class="form-group col-md-4">
+                <label>Cor</label>
+                <select id="cor" class="input-large form-control">
+                    <option value="" selected="selected">Escolha o periodo</option>
+                    <option value="vermelho">vermelho</option>
+                    <option value="verde">verde</option>
+                    
+                </select>
+            </div>
+		
+		</div>
+		
+		<button id="busca" class="btn btn-primary col-md-offset-5">Buscar</button>
+		
+		<table class="table table-bordered"> 
+			<caption>Produtos</caption>
+				<thead>
+					<tr> 
+						<th>Descricao</th>
+						<th>Marca</th> 
+						<th>Fornecedor</th> 
+						<th>Quantidade</th> 
+					</tr> 
+				</thead> 
+				
+				<tbody id="dadosCarro"> 
+					
+				</tbody> 
+		</table>
+
+		
+  </body>
+  
+</html>
